@@ -16,7 +16,7 @@ public class BookService {
 
     private final BookMapper bookMapper;
 
-    @Transactional(readOnly = true)
+//    @Transactional(readOnly = true)
     public BookDto getBookDetailByNo(long bookNo){
         return bookMapper.getBookDetailByNo(bookNo);
     }
