@@ -60,6 +60,7 @@
                         <div class="carousel-item active">
                             <div class="cards-wrapper" >
                                 <div class="book-view-card d-none d-md-block" th:each="book, iterStat : ${mainBookViewCount.books}" th:if="${iterStat.index < 5}">
+                                    <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                                     <div class="image-wrapper mt-4 mb-4">
                                         <a th:href="@{/product/book/detail(bookNo=${book.no})}">
                                             <img th:src="${book.cover}" class="bookview-img" alt="책 사진" >
@@ -70,12 +71,14 @@
                                             <strong class="card-title fw-bold small txt_post" th:text="${book.name}"></strong>
                                         </a>
                                     </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="cards-wrapper" >
                                 <div class="book-view-card d-none d-md-block" th:each="book, iterStat : ${mainBookViewCount.books}" th:if="${iterStat.index >= 5}">
+                                    <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                                     <div class="image-wrapper mt-4 mb-4">
                                         <a th:href="@{/product/book/detail(bookNo=${book.no})}">
                                             <img th:src="${book.cover}" class="bookview-img" alt="책 사진" >
@@ -86,6 +89,7 @@
                                             <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
                                         </a>
                                     </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +122,7 @@
                         <div class="col-md-10">
                             <div class="row">
                                 <div class="col md-3"  th:each="book, iterStat : ${mainBookRecommend.books}" th:if="${iterStat.index < 4}">
+                                    <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                                     <div class="card d-none d-md-block">
                                         <div class="image-wrapper mt-4">
                                             <a th:href="@{/product/book/detail(bookNo=${book.no})}">
@@ -130,6 +135,7 @@
                                             </a>
                                         </div>
                                     </div>
+                                    </a>
                                 </div>
 
                             </div>
@@ -144,6 +150,7 @@
         <div class="row mb-3">
             <h2 class="fw-bold display-5">베스트셀러</h2>
             <div class="col" th:each="book, iterStat : ${mainBestSeller.books}" th:if="${iterStat.index < 5}">
+                <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                 <div class="card-group mb-3" >
                     <div class="card">
                         <div class="card-body">
@@ -159,10 +166,12 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
         <div class="row mb-5">
             <div class="col" th:each="book, iterStat : ${mainBestSeller.books}" th:if="${iterStat.index >= 5}">
+                <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                 <div class="card-group mb-3" >
                     <div class="card">
                         <div class="card-body">
@@ -178,6 +187,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     </div>
@@ -193,6 +203,7 @@
                     <div class="carousel-item active">
                         <div class="cards-wrapper">
                             <div class="newbook card d-none d-md-block" th:each="book, iterStat : ${mainNewBook.books}" th:if="${iterStat.index < 4}">
+                                <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                                 <div class="newbook-img-wrapper" style="width: 18rem;">
                                     <a th:href="@{/product/book/detail(bookNo=${book.no})}">
                                         <img th:src="${book.cover}" class="newbook-img" alt="책 사진">
@@ -203,12 +214,14 @@
                                         <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
                                     </a>
                                 </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="cards-wrapper">
                             <div class="newbook card d-none d-md-block" th:each="book, iterStat : ${mainNewBook.books}" th:if="${iterStat.index >= 4}">
+                                <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                                 <div class="newbook-img-wrapper" >
                                     <a th:href="@{/product/book/detail(bookNo=${book.no})}">
                                         <img th:src="${book.cover}" class="newbook-img" alt="책 사진">
@@ -219,6 +232,7 @@
                                         <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
                                     </a>
                                 </div>
+                                </a>
                             </div>
                         </div>
                     </div>
