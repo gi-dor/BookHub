@@ -63,13 +63,13 @@
                                     <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                                     <div class="image-wrapper mt-4 mb-4">
                                         <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                            <img th:src="${book.cover}" class="bookview-img" alt="책 사진" >
+                                            <img th:if="${ book.cover != 'default.png'}" th:src="${book.cover}" class="bookview-img" alt="책 사진">
+                                            <img th:if="${book.cover == 'default.png'}" src="/image/main/default.png" class="bookview-img" alt="책 사진">
                                         </a>
+
                                     </div>
                                     <div class="card-body">
-                                        <a th:href="@{/product/book/detail(bookNo=${book.no})}">
                                             <strong class="card-title fw-bold small txt_post" th:text="${book.name}"></strong>
-                                        </a>
                                     </div>
                                     </a>
                                 </div>
@@ -81,13 +81,12 @@
                                     <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                                     <div class="image-wrapper mt-4 mb-4">
                                         <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                            <img th:src="${book.cover}" class="bookview-img" alt="책 사진" >
+                                            <img th:if="${ book.cover != 'default.png'}" th:src="${book.cover}" class="bookview-img" alt="책 사진">
+                                            <img th:if="${book.cover == 'default.png'}" src="/image/main/default.png" class="bookview-img" alt="책 사진">
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                            <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
-                                        </a>
+                                        <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
                                     </div>
                                     </a>
                                 </div>
@@ -126,13 +125,12 @@
                                     <div class="card d-none d-md-block">
                                         <div class="image-wrapper mt-4">
                                             <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                                <img th:src="${book.cover}" class="bookreco-img" alt="책 사진">
+                                                <img th:if="${ book.cover != 'default.png'}" th:src="${book.cover}" class="bookview-img" alt="책 사진">
+                                                <img th:if="${book.cover == 'default.png'}" src="/image/main/default.png" class="bookview-img" alt="책 사진">
                                             </a>
                                         </div>
                                         <div class="card-body">
-                                            <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                                <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
-                                            </a>
+                                            <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
                                         </div>
                                     </div>
                                     </a>
@@ -156,12 +154,13 @@
                         <div class="card-body">
                             <h5 class="card-title" th:text="${iterStat.count}"></h5>
                             <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                <img th:src="${book.cover}" class="card-img-top" alt="책 사진">
+                                <a th:href="@{/product/book/detail(bookNo=${book.no})}">
+                                    <img th:if="${ book.cover != 'default.png'}" th:src="${book.cover}" class="card-img-top" alt="책 사진">
+                                    <img th:if="${book.cover == 'default.png'}" src="/image/main/default.png" class="card-img-top" alt="책 사진">
+                                </a>
                             </a>
                             <div>
-                                <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                    <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
-                                </a>
+                                <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
                             </div>
                         </div>
                     </div>
@@ -177,12 +176,11 @@
                         <div class="card-body">
                             <h5 class="card-title" th:text="${iterStat.count}"></h5>
                             <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                <img th:src="${book.cover}" class="card-img-top" alt="책 사진">
+                                <img th:if="${ book.cover != 'default.png'}" th:src="${book.cover}" class="card-img-top" alt="책 사진">
+                                <img th:if="${book.cover == 'default.png'}" src="/image/main/default.png" class="card-img-top" alt="책 사진">
                             </a>
                             <div>
-                                <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                    <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
-                                </a>
+                                <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
                             </div>
                         </div>
                     </div>
@@ -206,13 +204,12 @@
                                 <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                                 <div class="newbook-img-wrapper" style="width: 18rem;">
                                     <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                        <img th:src="${book.cover}" class="newbook-img" alt="책 사진">
+                                        <img th:if="${ book.cover != 'default.png'}" th:src="${book.cover}" class="newbook-img" alt="책 사진">
+                                        <img th:if="${book.cover == 'default.png'}" src="/image/main/default.png" class="newbook-img" alt="책 사진">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <a th:href="@{/product/book/detail(bookNo=${book.no})}">
                                         <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
-                                    </a>
                                 </div>
                                 </a>
                             </div>
@@ -224,13 +221,12 @@
                                 <a th:href="@{|/product/book/detail?bookNo=${book.no}|}" style="text-decoration: none; color: inherit;">
                                 <div class="newbook-img-wrapper" >
                                     <a th:href="@{/product/book/detail(bookNo=${book.no})}">
-                                        <img th:src="${book.cover}" class="newbook-img" alt="책 사진">
+                                        <img th:if="${ book.cover != 'default.png'}" th:src="${book.cover}" class="newbook-img" alt="책 사진">
+                                        <img th:if="${book.cover == 'default.png'}" src="/image/main/default.png" class="newbook-img" alt="책 사진">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <a th:href="@{/product/book/detail(bookNo=${book.no})}">
                                         <strong class="card-title fw-bold small txt_post" th:text="${book.name}"  ></strong>
-                                    </a>
                                 </div>
                                 </a>
                             </div>

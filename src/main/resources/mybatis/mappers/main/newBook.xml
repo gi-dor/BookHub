@@ -99,11 +99,8 @@
         <result column="BOOK_IMAGE_COVER" property="cover"/>
         <result column="PUBLISHER_NAME" property="publisherName"/>
         <result column="CATEGORY_NAME" property="categoryName"/>
-        <collection property="authors" ofType="com.example.bookhub.main.dto.BookAuthorDto">
-            <id column="AUTHOR_NO" property="no"></id>
-            <result column="AUTHOR_NAME" property="name"></result>
-            <result column="AUTHOR_TYPE" property="type"></result>
-        </collection>
+        <result column="BOOK_AVERAGE_RATING" property="averageRating"/>
+        <result column="AUTHORS" property="authors" />
     </resultMap>
 
 
