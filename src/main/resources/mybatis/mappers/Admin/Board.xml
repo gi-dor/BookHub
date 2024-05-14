@@ -95,13 +95,13 @@
 
             <choose>
                     <when test="sort == 'recentlyCreated'">
-                        ORDER BY N.NOTICE_CREATED_DATE DESC
+                        ORDER BY N.NOTICE_CREATED_DATE DESC, NOTICE_NO DESC
                     </when>
                     <when test="sort == 'recentlyUpdated'">
-                        ORDER BY N.NOTICE_UPDATED_DATE DESC
+                        ORDER BY N.NOTICE_UPDATED_DATE DESC, NOTICE_NO DESC
                     </when>
                     <when test="sort == 'important'">
-                        ORDER BY N.NOTICE_IMPORTANT_YN DESC
+                        ORDER BY N.NOTICE_IMPORTANT_YN DESC, NOTICE_NO DESC
                     </when>
             </choose>
 
