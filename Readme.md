@@ -95,14 +95,14 @@
 
 
 
-- 회원 가입 완료시 `비동기 이메일 전송`  <a href="https://gi-dor.tistory.com/255" target="_blank">스레드 풀 설정</a>
+- 회원 가입 완료시 `비동기 이메일 전송`  <a href="https://gi-dor.tistory.com/255" target="blank">스레드 풀 설정</a>
   - 비동기 처리 이후  `TPS  :  3231ms → 110ms`
 
 
-- 1:1 문의사항 `INDEX 조회성능 개선`   <a href="https://gi-dor.tistory.com/252" target="_blank">자세히 보기</a>
+- 1:1 문의사항 `INDEX 조회성능 개선`   <a href="https://gi-dor.tistory.com/252" target="blank">자세히 보기</a>
   - 카디널리티 수치 INDEX 설정
   - 평균 `TPS : 8.8ms  → 62.5ms` 로 개선
 
 
-- 중요정보 암호화 처리  <a href="https://gi-dor.tistory.com/250" target="_blank">자세히 보기</a>
+- 중요정보 암호화 처리  <a href="https://gi-dor.tistory.com/250" target="blank">자세히 보기</a>
   - application.properties에 저장된 DB 연결 정보를 `jasypt` 암호화를 통한 보안강화
