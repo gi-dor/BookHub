@@ -11,6 +11,7 @@
         B.BOOK_LIST_PRICE,
         B.PUBLISHER_NO,
         B.BOOK_VIEW_COUNT,
+        B.BOOK_AVERAGE_RATING,
         BA.AUTHOR_NO,
         BA.AUTHOR_TYPE,
         A.AUTHOR_NAME,
@@ -62,6 +63,7 @@
                 AND B.BOOK_PUBLISHED_DATE >= DATE_SUB(CURRENT_DATE(),INTERVAL 168 DAY)
             </otherwise>
         </choose>
+
         GROUP BY B.BOOK_NO
         LIMIT #{offset}, #{recordSize};
     </select>
@@ -76,11 +78,8 @@
         <result column="BOOK_IMAGE_COVER" property="cover"/>
         <result column="PUBLISHER_NAME" property="publisherName"/>
         <result column="CATEGORY_NAME" property="categoryName"/>
-        <collection property="authors" ofType="com.example.bookhub.main.dto.BookAuthorDto">
-            <id column="AUTHOR_NO" property="no"></id>
-            <result column="AUTHOR_NAME" property="name"></result>
-            <result column="AUTHOR_TYPE" property="type"></result>
-        </collection>
+        <result column="BOOK_AVERAGE_RATING" property="averageRating"/>
+        <result column="AUTHORS" property="authors" />
     </resultMap>
 
     <!--페이징처리를 위해 검색결과 개수-->
@@ -125,5 +124,6 @@
                 AND B.BOOK_PUBLISHED_DATE >= DATE_SUB(CURRENT_DATE(), INTERVAL 168 DAY)
             </otherwise>
         </choose>
+
     </select>
 </mapper>
