@@ -158,7 +158,7 @@
                                 번호
                             </td>
                             <td>
-                                <a th:href="@{/book/detail(id=${post.no})}" th:text="${post.title}"
+                                <a th:href="@{/admin/board/notice/views(postNo=${post.no})}" th:text="${post.title}"
                                    style="text-decoration: none; color: inherit;">제목</a>
                             </td>
                             <td th:text="${post.writer}">작성자</td>
