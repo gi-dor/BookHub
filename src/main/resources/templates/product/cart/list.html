@@ -139,13 +139,29 @@
         }
     })
 
-    $("#table-cart-tbody").on('click', '.count-plus', function(event){
+    $("#table-cart-tbody").on('click', '.count-plus', async function(event){
         let cartNo = $(this).closest("tr").find("input[name=cart-no]").val();
+        let bookNo = $(this).closest("tr").find("input[name=buyBookNoList]").val();
         let prevVal =   parseInt($(this).siblings('input').val());
-        let nowVal = prevVal + 1;
-        $(this).siblings('input').val(nowVal);
-        updatePrices();
-        updateBookCount(cartNo, nowVal);
+
+        try {
+            let response = await fetch("/product/book/stock/" + bookNo + "/" + (prevVal + 1));
+            let checked = await response.text();
+            if (checked === "pass") {
+                // 성공 처리
+                let nowVal = prevVal + 1;
+                $(this).siblings('input').val(nowVal);
+                updatePrices();
+                updateBookCount(cartNo, nowVal);
+            } else {
+                // 실패 처리
+                alert("재고가 부족하여 수량을 증가시킬 수 없습니다");
+            }
+        } catch (error) {
+            console.error("네트워크 오류:", error);
+            // 실패 처리
+            console.log("수량 체크 실패");
+        }
     })
 
     function updatePrices(){
@@ -169,7 +185,6 @@
     }
 
     async function updateBookCount(cartNo, count){
-        console.log("/product/cart/update/count?cartNo=" + cartNo + "&count=" + count);
         let response = await fetch("/product/cart/update/count?cartNo=" + cartNo + "&count=" + count);
 
         if(!response.ok){
