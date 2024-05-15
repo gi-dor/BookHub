@@ -135,7 +135,7 @@
                                 <select th:field="*{publisherNo}" class="form-select-sm">
                                     <option selected value="0">전체</option>
                                     <option th:each="publisher : ${publishers}"
-                                            th:value="${publisher.no}"
+                                            th:value="${publisher.publisherNo}"
                                             th:text="${publisher.name}">
                                     </option>
                                 </select>
@@ -242,7 +242,7 @@
                             <td><img th:src="${book.image}"/></td>
                             <td>
                                 <a th:href="@{/product/book/detail(bookNo=${book.no})}"
-                                   th:text="${book.bookName}">도서명</a>
+                                   th:text="${book.bookName}" style="text-decoration: none; color: inherit;">도서명</a>
                             </td>
                             <td th:text="${book.authorName}">저자</td>
                             <td th:text="${#numbers.formatInteger(book.listPrice, 1, 'COMMA')}">정가</td>
@@ -254,7 +254,6 @@
                                 <p th:text="${#dates.format(book.updatedDate, 'yyyy-MM-dd HH:mm:ss')}"></p>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-outline-secondary btn-sm me-1">통계</button>
                                 <button id="btn-modify-product-${book.no}" type="button"
                                         class="btn btn-outline-secondary btn-sm" th:data-no="${book.no}">수정
                                 </button>
