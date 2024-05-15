@@ -61,7 +61,7 @@
                 </table>
             </div>
             <div class="col-3">
-                <div class="card mb-4 rounded-3 shadow-sm">
+                <div id="card-cart-total" class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
                         <h5 class="my-0"><strong>장바구니 합계</strong></h5>
                     </div>
@@ -163,6 +163,14 @@
             console.log("수량 체크 실패");
         }
     })
+
+    $(document).ready(function(){
+        let currentPosition = parseInt($("#card-cart-total").css("top"));
+        $(window).scroll(function() {
+            let position = $(window).scrollTop();
+            $("#card-cart-total").stop().animate({"top":position+currentPosition+"px"},1000);
+        });
+    });
 
     function updatePrices(){
         let totalPrice = 0;

@@ -381,6 +381,14 @@
             return true;
         })
 
+        $(document).ready(function(){
+            let currentPosition = parseInt($("#card-order-total").css("top"));
+            $(window).scroll(function() {
+                let position = $(window).scrollTop();
+                $("#card-order-total").stop().animate({"top":position+currentPosition+"px"},1000);
+            });
+        });
+
         function updatePrices(){
             let totalPrice = 0;
             let totalBookDiscountPrice = 0;
