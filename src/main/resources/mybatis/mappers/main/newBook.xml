@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.bookhub.main.mapper.NewBookMapper">
 
-        <select id="newBookList" parameterType="com.example.bookhub.main.dto.SearchCriteria" resultMap="bookResultMap">
+        <select id="getNewBookList" parameterType="com.example.bookhub.main.dto.SearchCriteria" resultMap="bookResultMap">
             SELECT
             B.BOOK_NO,
             B.BOOK_NAME,
