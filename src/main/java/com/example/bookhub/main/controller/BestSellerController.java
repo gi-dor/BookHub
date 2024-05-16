@@ -22,7 +22,7 @@ public class BestSellerController {
         BookListDto dto = bestSellerService.getBestSeller(searchCriteria);
         model.addAttribute("book", dto.getBooks());
         model.addAttribute("criteria", dto.getCriteria());
-        return "/main/bestseller.html";
+        return "main/bestseller.html";
     }
     }
 
