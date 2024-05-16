@@ -98,7 +98,7 @@ $(".btn-add-cart2").click(function (event) {
             data: JSON.stringify({"name": searchInput}),
             success: function () {
                 console.log("최근 검색 기록 저장 완료");
-                // 여기에 필요한 동작 추가
+
             },
             error: function (xhr, status, error) {
                 console.error("Error:", error);

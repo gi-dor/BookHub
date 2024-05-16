@@ -58,9 +58,10 @@
             </choose>
             <!--결과내 검색 -->
             <if test="extraKeyword != null">
-                AND MATCH (BOOK_NAME) AGAINST (#{keyword} IN BOOLEAN MODE)
-                OR MATCH (AUTHOR_NAME) AGAINST (#{keyword} IN BOOLEAN MODE)
-                OR MATCH (PUBLISHER_NAME) AGAINST (#{keyword} IN BOOLEAN MODE)
+                AND CATEGORY_NO IN (SELECT CATEGORY_NO FROM CATEGORY WHERE PARENT_CATEGORY_NO = 1)
+                AND (MATCH (BOOK_NAME) AGAINST (#{extraKeyword} IN BOOLEAN MODE)
+                OR MATCH (AUTHOR_NAME) AGAINST (#{extraKeyword} IN BOOLEAN MODE)
+                OR MATCH (PUBLISHER_NAME) AGAINST (#{extraKeyword} IN BOOLEAN MODE))
             </if>
         </if>
         <choose>
@@ -148,9 +149,10 @@
             </choose>
             <!--결과내 검색 -->
             <if test="extraKeyword != null">
-                AND MATCH (BOOK_NAME) AGAINST (#{keyword} IN BOOLEAN MODE)
-                OR MATCH (AUTHOR_NAME) AGAINST (#{keyword} IN BOOLEAN MODE)
-                OR MATCH (PUBLISHER_NAME) AGAINST (#{keyword} IN BOOLEAN MODE)
+                AND CATEGORY_NO IN (SELECT CATEGORY_NO FROM CATEGORY WHERE PARENT_CATEGORY_NO = 1)
+                AND (MATCH (BOOK_NAME) AGAINST (#{extraKeyword} IN BOOLEAN MODE)
+                OR MATCH (AUTHOR_NAME) AGAINST (#{extraKeyword} IN BOOLEAN MODE)
+                OR MATCH (PUBLISHER_NAME) AGAINST (#{extraKeyword} IN BOOLEAN MODE))
             </if>
         </if>
     </select>
