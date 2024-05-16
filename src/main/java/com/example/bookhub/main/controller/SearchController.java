@@ -3,17 +3,26 @@ package com.example.bookhub.main.controller;
 
 import com.example.bookhub.main.dto.BookListDto;
 import com.example.bookhub.main.dto.SearchCriteria;
+import com.example.bookhub.main.service.SearchLogService;
 import com.example.bookhub.main.service.SearchService;
+import com.example.bookhub.main.vo.SearchLog.SearchLog;
+import com.example.bookhub.main.vo.SearchLog.SearchLogSaveRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 
 @RequiredArgsConstructor
 @Controller
 public class SearchController {
     private final SearchService searchService;
+    private final SearchLogService searchLogService;
 
     //  출시일 순 검색 했을때
     @GetMapping("/search")
@@ -24,6 +33,19 @@ public class SearchController {
         return "main/searchList"; // searchList.html로 반환
     }
 
+
+
+    @PostMapping("/saveSearchLog")
+    public ResponseEntity<String> saveRecentSearchLog(@RequestBody SearchLogSaveRequest request) {
+        searchLogService.saveRecentSearchLog(request);
+        return ResponseEntity.ok("최근 검색 기록 저장 완료");
+    }
+
+    @GetMapping("/findRecentSearchLog")
+    public ResponseEntity<List<SearchLog>> findRecentSearchLog() {
+        List<SearchLog> recentSearchLogList = searchLogService.findRecentSearchLogs();
+        return ResponseEntity.ok(recentSearchLogList);
+    }
 }
 
 

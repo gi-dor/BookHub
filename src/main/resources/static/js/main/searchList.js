@@ -1,20 +1,19 @@
-
-
 //판매량순, 출시일순, 평점순, 리뷰순
-    function submitExtra() {
+function submitExtra() {
 
     $("#form-extra-search input[name=page]").val(1);
     $("#form-extra-search input[name=sort]").val("1");
     $("#form-extra-search").trigger("submit");
 }
-    $(".searchSort a ").click(function (event) {
+
+$(".searchSort a ").click(function (event) {
     event.preventDefault();
     $("#form-extra-search input[name=page]").val(1);
     $("#form-extra-search input[name=sort]").val($(this).attr("data-sort"));
     $("#form-extra-search").trigger("submit");
 });
 
-    $(".pagination a").click(function(event) {
+$(".pagination a").click(function (event) {
     event.preventDefault();
     $("#form-extra-search input[name=page]").val($(this).attr("data-page"));
     $("#form-extra-search").trigger("submit");
@@ -34,7 +33,7 @@ $(".btn-add-cart").click(function () {
 });
 
 // 전체 선택
-$('.btn-all-choice').click(function() {
+$('.btn-all-choice').click(function () {
     // 전체 선택 버튼이 체크되어 있는지 확인
     const isChecked = $(this).hasClass('active');
 
@@ -69,7 +68,7 @@ $(".btn-add-wishlist2").click(function (event) {
     $(this).find('i').addClass('fas text-danger');
 
     // 서버로 폼을 제출하여 위시리스트에 아이템 추가
-    $.get($(this).attr('href'), function(response) {
+    $.get($(this).attr('href'), function (response) {
     });
 });
 
@@ -81,6 +80,35 @@ $(".btn-add-cart2").click(function (event) {
     alert('장바구니에 담겼습니다.');
 
     // 서버로 폼을 제출하여 장바구니에 아이템 추가
-    $.get($(this).attr('href'), function(response) {
+    $.get($(this).attr('href'), function (response) {
     });
 });
+
+    $("#submitButton").click(function (event) {
+        event.preventDefault(); // 기본 제출 동작 방지
+
+        var searchInput = $("#searchInput").val();
+        var opt = $('select[name="opt"]').val();
+
+        // AJAX를 사용하여 POST 요청 보내기
+        $.ajax({
+            url: "/saveSearchLog",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({"name": searchInput}),
+            success: function () {
+                console.log("최근 검색 기록 저장 완료");
+
+            },
+            error: function (xhr, status, error) {
+                console.error("Error:", error);
+            }
+        });
+
+        // 검색 결과 페이지로 이동
+        var url = "/search?opt=" + opt + "&keyword=" + searchInput;
+        window.location.href = url;
+    });
+
+
+

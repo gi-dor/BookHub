@@ -10,7 +10,7 @@
             where CATEGORY_NO = #{value}
         </select>
 
-        <select id="categoryList" parameterType="com.example.bookhub.main.dto.SearchCriteria" resultMap="bookResultMap">
+        <select id="getBookCategoryList" parameterType="com.example.bookhub.main.dto.SearchCriteria" resultMap="bookResultMap">
             SELECT
             B.BOOK_NO,
             B.BOOK_NAME,
