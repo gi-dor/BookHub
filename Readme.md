@@ -19,7 +19,7 @@
 <br>
 
 - 도서 쇼핑몰  BOOK HUB
-- 프로젝트 기간 : 2024.04.8 ~ 2024.05.16
+- 프로젝트 기간 : 2024.04.8 ~ 2024.05.16 (39일간 468시간)
 - 벤치마킹 사이트 :
   <a href = "https://www.yes24.com/main/default.aspx">  예스24  </a> ,
   <a href = "https://www.kyobobook.co.kr/" > 교보문고  </a>  ,
